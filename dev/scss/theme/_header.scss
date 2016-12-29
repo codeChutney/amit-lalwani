@@ -47,7 +47,7 @@ $lh: 3rem;
     left: 0;
     background: $green;
     height: $lh *.75;
-    top: calc(#{$header-width} - #{$lh *.75});
+    top: calc(#{$header-width} - 1em);
     a{
       bottom: 0;
       display: none;
@@ -64,5 +64,25 @@ $lh: 3rem;
 .active > .top__title{
   @include to($vp){
     width: calc(100% - #{$header-width});
+  }
+}
+.top{
+  background: radial-gradient(
+              #777 1%,
+              #333
+  );
+  padding: .5em 0;
+  img{
+    display: block;
+
+  }
+}
+.bottom{
+  margin-top: auto;
+  text-align: center;
+  color: rgba($white, .2);
+  font-size: .8em;
+  span{
+    margin-left: 3px;
   }
 }
