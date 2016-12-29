@@ -1,0 +1,36 @@
+li
+  a(href="#home").selected
+    span.icon-home-1
+    | home
+li
+  a(href="#resume")
+    span.icon-id-card
+    | resume
+li
+  a(href="#portfolio")
+    span.icon-glasses
+    | portfolio
+li
+  a(href="#blog")
+    span.icon-book
+    | blog
+li
+  a(href="#contact")
+    span.icon-phone
+    | contact
+
+
+//-
+  -var pages = ["inicio","nosotros","servicios","galeria","contacto"]
+
+  each page in pages
+    //- Interpolar una variable significa utilizar su valor para construir strings. Para hacerlo, se debe insertar dentro de #{}
+    if page == "inicio"
+      if currentpage == "inicio"
+        li.main-menu__item: a(href="/", class="main-menu__link menu-selected") #{page}
+      else
+        li.main-menu__item: a(href="/", class="main-menu__link") #{page}
+    else if currentpage == page
+      li.main-menu__item: a(href=`${page}.html` class="main-menu__link menu-selected") #{page}
+    else
+      li.main-menu__item: a(href=`${page}.html`, class="main-menu__link") #{page}

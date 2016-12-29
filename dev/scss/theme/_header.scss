@@ -1,0 +1,68 @@
+$color-header: rgba($white,.4);
+$lh: 3rem;
+.main-header{
+  width: $header-width;
+  height: 100vh;
+  background: $header-bg;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  overflow-y: auto;
+  z-index: 90;
+  top: 0;
+  @include from($vp){
+    left: 0;
+  }
+}
+.top__title{
+  position: absolute;
+  z-index: 100;
+  color: $white;
+  h1{
+    color: inherit;
+  }
+  @include to($vp){
+    width: 100%;
+    background: $black;
+    left: $header-width;
+    display: flex;
+    height: $lh;
+    a{
+      display: block;
+      width: $lh*1.5;
+      line-height: $lh;
+      font-size: 1.5em;
+      border-right: border(rgba($white,.2),1px);
+      text-align: center;
+    }
+    h1{
+
+      font-size: 1.5em;
+      line-height: $lh;
+      text-align: left;
+      padding-left: 1em;
+    }
+  }
+  @include from($vp){
+    left: 0;
+    background: $green;
+    height: $lh *.75;
+    top: calc(#{$header-width} - #{$lh *.75});
+    a{
+      bottom: 0;
+      display: none;
+    }
+    h1{
+      width: $header-width;
+      font-size: 1em;
+      text-align: center;
+      line-height: $lh *.75;
+      height: $lh *.75;
+    }
+  }
+}
+.active > .top__title{
+  @include to($vp){
+    width: calc(100% - #{$header-width});
+  }
+}
