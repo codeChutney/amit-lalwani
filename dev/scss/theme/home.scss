@@ -1,0 +1,46 @@
+.home{
+  width: calc(100vw - #{$header-width});
+  height: 100vh;
+  background: img('bg.jpg') center center / cover no-repeat;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  @include to($vp){
+    width: 100vw;
+    left: $header-width;
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba($header-bg,.75);
+  }
+  &__message {
+    position: relative;
+    z-index: 50;
+    margin-bottom: 5em;
+    color: $white;
+  }
+  &__span, &__pro{
+    text-align: center;
+    display: block;
+    font-size: 1.3em;
+    color: inherit;
+  }
+  &__name{
+    text-align: center;
+    font-size: 3em;
+    margin: 0;
+    line-height: 1;
+    color: inherit;
+  }
+  &__pro{
+    padding-top: 1em;
+
+  }
+}

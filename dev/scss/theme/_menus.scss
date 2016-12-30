@@ -1,5 +1,6 @@
 .main-nav{
   height: calc(100vh - #{$header-width} - 5em);
+  max-height: 600px;
 }
 .main-menu{
   height: 100%;

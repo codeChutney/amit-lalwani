@@ -34,6 +34,8 @@ $lh: 3rem;
       font-size: 1.5em;
       border-right: border(rgba($white,.2),1px);
       text-align: center;
+      white-space: nowrap;
+
     }
     h1{
 
@@ -44,6 +46,7 @@ $lh: 3rem;
     }
   }
   @include from($vp){
+    position: fixed;
     left: 0;
     background: $green;
     height: $lh *.75;
