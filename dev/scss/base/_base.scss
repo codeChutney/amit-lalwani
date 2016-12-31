@@ -71,4 +71,18 @@ h5 {
 h6 {
   font-size : $h6--font-size;
 }
-
+section{
+  width: calc(100vw - #{$header-width});
+  height: 100vh;
+  overflow-y: auto;
+  padding-top: 60px;
+  position: relative;
+  @include to($vp){
+    width: 100vw;
+    left: $header-width;
+  }
+  @include to($vp){
+    width: 100vw;
+    left: $header-width;
+  }
+}

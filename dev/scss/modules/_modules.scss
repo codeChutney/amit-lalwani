@@ -19,3 +19,20 @@ body{
     left: 0;
   }
 }
+.title_page{
+  display: block;
+  text-align: center;
+  font-size: 2em;
+  span{
+    font-size: 2em;
+  }
+}
+.container{
+  height: 600px;
+  //background: #000;
+  border: 1px solid red;
+  overflow-y: auto;
+}
+.sub-title{
+  text-align: left;
+}

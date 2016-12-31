@@ -15,7 +15,7 @@ $lh: 3rem;
   }
 }
 .top__title{
-  position: absolute;
+  position: fixed;
   z-index: 100;
   color: $white;
   h1{
@@ -24,7 +24,8 @@ $lh: 3rem;
   @include to($vp){
     width: 100%;
     background: $black;
-    left: $header-width;
+    left: 0;
+    transition: $transition;
     display: flex;
     height: $lh;
     a{
@@ -67,6 +68,7 @@ $lh: 3rem;
 .active > .top__title{
   @include to($vp){
     width: calc(100% - #{$header-width});
+    left: $header-width;
   }
 }
 .top{
