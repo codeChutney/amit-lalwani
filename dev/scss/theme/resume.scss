@@ -30,6 +30,9 @@ body{
     @include to(m){
       margin-top: 2em;
     }
+    @include from(l){
+      margin-top: -.5em;
+    }
     &__title{
       $heigth: 30px;
       $top: -5px;
@@ -44,9 +47,9 @@ body{
       font-size: 1em;
       text-transform: uppercase;
       text-align: center;
-      @include from(l){
-        transform: translateY(-50%);
-      }
+      //@include from(l){
+      //  transform: translateY(-50%);
+      //}
       &::before, &::after{
         content: '';
         position: absolute;
@@ -54,8 +57,11 @@ body{
         height: 100%;
         width: $heigth;
         background: darken($color,15%);
-        z-index: -1;
+        z-index: -1 !important;
         border: border(transparent,5px);
+        @include from(l){
+          z-index: -1;
+        }
       }
       &::before{
         left: calc((#{$heigth} - 5px) * -1);
