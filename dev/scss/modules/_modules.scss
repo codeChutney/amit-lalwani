@@ -23,38 +23,8 @@ body{
   display: block;
   text-align: center;
   font-size: 2em;
+  margin-bottom: 3em;
   span{
     font-size: 2em;
   }
 }
-//.container{
-//  height: 600px;
-//  //background: #000;
-//  border: 1px solid red;
-//  overflow-y: auto;
-//}
-//.sub-title{
-//  position: absolute;
-//  text-align: left;
-//  text-transform: uppercase;
-//  transform: translateY(-50%);
-//  h3, span{
-//    display: inline;
-//  }
-//  h3{
-//  }
-//  span{
-//    $size: 3rem;
-//    background: $green;
-//    display: inline-block;
-//    width: $size;
-//    height: $size;
-//    line-height: $size;
-//    text-align: center;
-//    font-size: 1.5em;
-//    color: $white;
-//    border-radius: 50%;
-//    transform: translateX(calc(-50% - 0px));
-//
-//  }
-//}

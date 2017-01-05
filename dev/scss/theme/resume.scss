@@ -41,12 +41,15 @@ body{
       background: $color;
       width: 75%;
       max-width: 300px;
-      margin: auto ;
+      margin: 6em auto 3em;
       height: $heigth;
       line-height: $heigth;
       font-size: 1em;
       text-transform: uppercase;
       text-align: center;
+      &:nth-of-type(1){
+        margin: 0 auto 3em;
+      }
       //@include from(l){
       //  transform: translateY(-50%);
       //}
@@ -56,7 +59,7 @@ body{
         display: block;
         height: 100%;
         width: $heigth;
-        background: darken($color,15%);
+        background: darken($color,10);
         z-index: -1 !important;
         border: border(transparent,5px);
         @include from(l){
@@ -161,4 +164,29 @@ body{
     }
   }
 }
-
+.html{
+  @include skill(80,$white);
+}
+.css{
+  @include skill(100,$white);
+}
+.jquery{
+  @include skill(60,$white);
+}
+.wordpress{
+  @include skill(80,$white);
+}
+.illustrador{
+  @include skill(80,$white);
+}
+.fireworks{
+  @include skill(60,$white);
+}
+.photoshop{
+  @include skill(70,$white);
+}
+//.skill-title{
+//
+//}
+//.skill{
+//}

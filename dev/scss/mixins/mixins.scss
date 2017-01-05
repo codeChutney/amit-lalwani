@@ -317,3 +317,36 @@
   }
   @content;
 }
+@mixin skill($percentage,$color){
+  margin-top: 1em;
+  width: 80%;
+  margin-bottom: 2em;
+  &:last-of-type{
+    margin-bottom: 0;
+  }
+  & > p{
+    text-transform: uppercase;
+    margin-bottom: .5em;
+  }
+  & > .skill{
+    width: unquote($percentage+'%');
+    height: 8px;
+    background: $color;
+    position: relative;
+    border-radius:10px;
+    &::after{
+      content: '#{$percentage}';
+      position: absolute;
+      $sizep: 40px;
+      right: calc(#{-$sizep} - 0em);
+      width: $sizep;
+      height: $sizep;
+      line-height: $sizep;
+      background: darken($color,5);
+      text-align: center;
+      font-family: $main-font;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
