@@ -4,8 +4,8 @@ $cssHelpers : false ;
 $devMode    : false;
 
 // Selectores (clases) para flex-container y flex-item
-$container : container;
-$item      : item;
+$container : ed-container;
+$item      : ed-item;
 
 // config
 @import "config/colors";

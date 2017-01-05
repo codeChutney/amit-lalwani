@@ -1,9 +1,158 @@
-$sice: 50px;
+$size: 3rem;
 $resume-bg: #EBF0DF;
 $before-bg: #8ACB82;
-.resume{
+$pl: 2.5em;
+$color: $green;
+body{
   background: $resume-bg;
 }
-.sub-title{
+.resume{
+  background: none;
+  padding-bottom: 3em;
   position: relative;
+  &__container{
+    @include edContainer;
+    margin-top: 3em;
+  }
+  &__history, &__skills{
+    @include edItem(100,50);
+  }
+  &__history{
+    padding-left: $pl;
+    margin-top: 2em;
+    border-left: border($white,3px);
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  &__skills{
+    //background: lightgreen;
+    @include to(m){
+      margin-top: 2em;
+    }
+    &__title{
+      $heigth: 30px;
+      $top: -5px;
+      position: relative;
+      color: $white;
+      background: $color;
+      width: 75%;
+      max-width: 300px;
+      margin: auto ;
+      height: $heigth;
+      line-height: $heigth;
+      font-size: 1em;
+      text-transform: uppercase;
+      text-align: center;
+      @include from(l){
+        transform: translateY(-50%);
+      }
+      &::before, &::after{
+        content: '';
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: $heigth;
+        background: darken($color,15%);
+        z-index: -1;
+        border: border(transparent,5px);
+      }
+      &::before{
+        left: calc((#{$heigth} - 5px) * -1);
+        top: $top;
+        border-right-color: darken($green,30);
+        border-radius: 3px 0 0 3px;
+      }
+      &::after{
+        right: calc((#{$heigth} - 5px) * -1);
+        bottom: $top;
+        border-left-color: darken($green,30);
+        border-radius: 0 3px 3px 0;
+      }
+    }
+  }
+  &__title{
+    position: relative;
+    margin-top: 2em;
+    &:nth-of-type(1){
+      margin-top: 0;
+    }
+    & > span, & > h3{
+      display: inline-block;
+    }
+    & > span{
+      position: absolute;
+      //left: -$pl;
+      left: -$size;
+      width: $size;
+      height: $size;
+      line-height: $size;
+      background: $color;
+      color: $white;
+      font-size: 1.5em;
+      text-align: center;
+      transform: translate(-35%,-25%);
+      border-radius: 50%;
+    }
+    & > h3{
+      text-transform: uppercase;
+    }
+
+  }
+  &__content{
+    margin-top: 2em;
+    h4{
+      font-size: 1em;
+      text-transform: uppercase;
+    }
+    h5{
+      color: rgba($gray,.45);
+      margin: .5em 0 1em;
+    }
+  }
 }
+.date{
+  position: relative;
+  margin-bottom: 1.5em;
+  p{
+    background: $color;
+    display: table;
+    text-transform: uppercase;
+    $height: 20px;
+    line-height: $height;
+    height: $height;
+    padding: 0 1em;
+    color: $white;
+    font-size: .9em;
+    &:before, &::after{
+      content: '';
+      position: absolute;
+    }
+    &:before{
+      $size-circle: 15px;
+      width: $size-circle;
+      height: $size-circle;
+      border-radius: 50%;
+      background: $white;
+      left: -$size;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &::after{
+      left: -$height/2;
+      top: 0;
+      width: 0;
+      height: 0;
+      border: $height/2 solid $color;
+      border-left-color: transparent;
+    }
+  }
+  &.green{
+    p{
+      &::before{
+        background: $color !important;
+      }
+    }
+  }
+}
+
