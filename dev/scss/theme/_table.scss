@@ -1,0 +1,49 @@
+$main-color-table: $green;
+$secondary-color-table: lighten(#76A63F,25);
+$third-color-table: #fff;
+$width-table: 400px;
+$frozen-width: 8em;
+@mixin center {
+  margin-left : auto;
+  margin-right : auto;
+}
+.table-container{
+  // background: rgba(yellow,.3);
+  overflow-x: auto;
+  margin-bottom: 2em;
+  .table-rwd {
+    font-size : .85em;
+    border: 1px solid rgba($secondary-color-table,.5);
+    color: #666;
+    border-collapse: collapse;
+    min-width: $width-table;
+    @include center;
+    td, th {
+      padding : .8em;
+      border-bottom: 1px solid rgba($secondary-color-table,.5);
+    }
+
+    th {
+      background : $main-color-table;
+      color: $third-color-table;
+      font-weight : normal;
+      text-align : center;
+      text-transform: uppercase;
+    }
+
+    td {
+      text-align : center;
+
+    }
+
+    tr {
+      &:hover {
+        background : rgba($secondary-color-table,.2);
+      }
+      td:nth-child(2n){
+        background : rgba($secondary-color-table,.2);
+      }
+    }
+
+  }
+}

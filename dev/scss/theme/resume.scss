@@ -12,11 +12,11 @@ body{
 
   }
   &__work, &__project{
-    @include edItem(100,50)
+    @include edItem(100,100,50)
   }
   &__work{
     &-content{
-      border: border(green,1px);
+      // border: border(green,1px);
       margin-bottom: 1em;
       h3{
 
@@ -40,12 +40,124 @@ body{
         padding-left: .7em;
       }
     }
+
   }
+  &__project{
+    $shadow: darken($green,20);
+    h3{
+      position: relative;
+      width: 80%;
+      max-width: 250px;
+      margin: 0 auto 1.5em;
+      line-height: 1.8em;
+      background: $green;
+      color: $white;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 2em;
+      @include to(l){
+        margin-top: 2em;
+      }
+      &::before, &::after{
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 1.5em;
+        background: darken($green,10);
+        z-index: -1;
+        border: border(transparent,5px);
+      }
+      &::before{
+        left: -1.3em;
+        top: -15%;
+        border-right-color: $shadow;
+        border-radius: 3px 0 0 3px;
+      }
+      &::after{
+        right: calc(-1.3em + 1px);
+        top: 15%;
+        border-left-color: $shadow;
+        border-radius: 0 3px 3px 0;
+      }
+    }
+    &-content{
+      border: border($green,2px);
+      // margin-top: 1em;
+      margin-bottom: 3em;
+      padding: 2em 1em 0em;
+      background: rgba($white,.75);
+      position: relative;
+      // transform: scale(.95);
+      h4{
+        margin-bottom: .5em;
+        text-align: center;
+        color: darken($green,20);
+        position: absolute;
+        top: 0;
+        transform: translateY(-50%) translateX(-50%);
+        background: $green;
+        left: 0;
+        // display: table;
+        width: 65%;
+        line-height: 2em;
+        left: 50%;
+        color: $white;
+        @include to(m){
+          width: 95%;
+          font-size: .9em;
+        };
+      }
+      .text{
+        // background: tomato;
+        margin-bottom: .3em;
+        display: flex;
+        h6{
+          // background: yellow;
+          flex: 0 0 100px;
+          padding-top: 4px;
+          line-height: 1;
+          text-align: right;
+          // font-size: 1em;
+          @include from(m){
+            width: 80px;
+          };
+          // @include from(l){
+          //   width: 20%;
+          //   margin-right: .5em;
+          // };
+        }
+        p{
+          // width: 75%;
+          flex: auto;
+          padding: 0;
+          margin-left: .5em;
+        }
+      }
+      h5{
+        padding-left: 3px;
+      }
+      ul{
+        margin-top: .5em;
+      }
+    }
+
+  }
+}
+#content{
+  display: none;
 }
 
 
-
-
+//
+//
+// border: border(transparent,5px);
+//
+// border-right-color: darken($green,30);
+// border-radius: 3px 0 0 3px;
+//
+//
+// border-left-color: darken($green,30);
+// border-radius: 0 3px 3px 0;
 
 
 
@@ -119,6 +231,7 @@ body{
 //           z-index: -1;
 //         }
 //       }
+
 //       &::before{
 //         left: calc((#{$heigth*.75} - 5px) * -1);
 //         top: $top;
