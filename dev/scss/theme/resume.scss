@@ -1,4 +1,4 @@
-$size: 3rem;
+$size: 2.5rem;
 $resume-bg: #EBF0DF;
 $before-bg: #8ACB82;
 $pl: 2.5em;
@@ -7,184 +7,237 @@ body{
   background: $resume-bg;
 }
 .resume{
-  background: none;
-  padding-bottom: 3em;
-  position: relative;
   &__container{
     @include edContainer;
-    margin-top: 3em;
-  }
-  &__history, &__skills{
-    @include edItem(100,50);
-  }
-  &__history{
-    padding-left: $pl;
-    margin-top: 2em;
-    border-left: border($white,3px);
-    &:first-child{
-      margin-top: 0;
-    }
-  }
-  &__skills{
-    //background: lightgreen;
-    @include to(m){
-      margin-top: 2em;
-    }
-    @include from(l){
-      margin-top: -.5em;
-    }
-    &__title{
-      $heigth: 30px;
-      $top: -5px;
-      position: relative;
-      color: $white;
-      background: $color;
-      width: 75%;
-      max-width: 300px;
-      margin: 6em auto 3em;
-      height: $heigth;
-      line-height: $heigth;
-      font-size: 1em;
-      text-transform: uppercase;
-      text-align: center;
-      &:nth-of-type(1){
-        margin: 0 auto 3em;
-      }
-      //@include from(l){
-      //  transform: translateY(-50%);
-      //}
-      &::before, &::after{
-        content: '';
-        position: absolute;
-        display: block;
-        height: 100%;
-        width: $heigth;
-        background: darken($color,10);
-        z-index: -1 !important;
-        border: border(transparent,5px);
-        @include from(l){
-          z-index: -1;
-        }
-      }
-      &::before{
-        left: calc((#{$heigth} - 5px) * -1);
-        top: $top;
-        border-right-color: darken($green,30);
-        border-radius: 3px 0 0 3px;
-      }
-      &::after{
-        right: calc((#{$heigth} - 5px) * -1);
-        bottom: $top;
-        border-left-color: darken($green,30);
-        border-radius: 0 3px 3px 0;
-      }
-    }
-  }
-  &__title{
-    position: relative;
-    margin-top: 2em;
-    &:nth-of-type(1){
-      margin-top: 0;
-    }
-    & > span, & > h3{
-      display: inline-block;
-    }
-    & > span{
-      position: absolute;
-      //left: -$pl;
-      left: -$size;
-      width: $size;
-      height: $size;
-      line-height: $size;
-      background: $color;
-      color: $white;
-      font-size: 1.5em;
-      text-align: center;
-      transform: translate(-35%,-25%);
-      border-radius: 50%;
-    }
-    & > h3{
-      text-transform: uppercase;
-    }
 
   }
-  &__content{
-    margin-top: 2em;
-    h4{
-      font-size: 1em;
-      text-transform: uppercase;
-    }
-    h5{
-      color: rgba($gray,.45);
-      margin: .5em 0 1em;
-    }
+  &__work, &__project{
+    @include edItem(100,50)
   }
-}
-.date{
-  position: relative;
-  margin-bottom: 1.5em;
-  p{
-    background: $color;
-    display: table;
-    text-transform: uppercase;
-    $height: 20px;
-    line-height: $height;
-    height: $height;
-    padding: 0 1em;
-    color: $white;
-    font-size: .9em;
-    &:before, &::after{
-      content: '';
-      position: absolute;
-    }
-    &:before{
-      $size-circle: 15px;
-      width: $size-circle;
-      height: $size-circle;
-      border-radius: 50%;
-      background: $white;
-      left: -$size;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    &::after{
-      left: -$height/2;
-      top: 0;
-      width: 0;
-      height: 0;
-      border: $height/2 solid $color;
-      border-left-color: transparent;
-    }
-  }
-  &.green{
-    p{
-      &::before{
-        background: $color !important;
+  &__work{
+    &-content{
+      border: border(green,1px);
+      margin-bottom: 1em;
+      h3{
+
+      }
+      span{
+        display: inline-block;
+        width: $size;
+        height: $size;
+        line-height: $size;
+        background: $color;
+        margin-right: $size/2;
+        color: $white;
+        text-align: center;
+        border-radius: 50%;
+      }
+      p, ul{
+        margin-left: $size+$size/2
+      }
+      ul{
+        margin-top: 0;
+        padding-left: .7em;
       }
     }
   }
 }
-.html{
-  @include skill(80,$white);
-}
-.css{
-  @include skill(100,$white);
-}
-.jquery{
-  @include skill(60,$white);
-}
-.wordpress{
-  @include skill(80,$white);
-}
-.illustrador{
-  @include skill(80,$white);
-}
-.fireworks{
-  @include skill(60,$white);
-}
-.photoshop{
-  @include skill(70,$white);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// .resume{
+//   background: none;
+//   padding-bottom: 3em;
+//   position: relative;
+//   &__container{
+//     @include edContainer;
+//     margin-top: 3em;
+//   }
+//   &__history, &__skills{
+//     @include edItem(100,50);
+//   }
+//   &__history{
+//     padding-left: $pl;
+//     margin-top: 2em;
+//     border-left: border($white,3px);
+//     &:first-child{
+//       margin-top: 0;
+//     }
+//   }
+//   &__skills{
+//     //background: lightgreen;
+//     @include to(m){
+//       margin-top: 2em;
+//     }
+//     @include from(l){
+//       margin-top: -.5em;
+//     }
+//     &__title{
+//       $heigth: 30px;
+//       $top: -5px;
+//       position: relative;
+//       color: $white;
+//       background: $color;
+//       width: 75%;
+//       max-width: 300px;
+//       margin: 6em auto 3em;
+//       height: $heigth;
+//       line-height: $heigth;
+//       font-size: 1em;
+//       text-transform: uppercase;
+//       text-align: center;
+//       &:nth-of-type(1){
+//         margin: 0 auto 3em;
+//       }
+//       //@include from(l){
+//       //  transform: translateY(-50%);
+//       //}
+//       &::before, &::after{
+//         content: '';
+//         position: absolute;
+//         display: block;
+//         height: 100%;
+//         width: $heigth*.75;
+//         background: darken($color,10);
+//         z-index: -1 !important;
+//         border: border(transparent,5px);
+//         @include from(l){
+//           z-index: -1;
+//         }
+//       }
+//       &::before{
+//         left: calc((#{$heigth*.75} - 5px) * -1);
+//         top: $top;
+//         border-right-color: darken($green,30);
+//         border-radius: 3px 0 0 3px;
+//       }
+//       &::after{
+//         right: calc((#{$heigth*.75} - 5px) * -1);
+//         bottom: $top;
+//         border-left-color: darken($green,30);
+//         border-radius: 0 3px 3px 0;
+//       }
+//     }
+//   }
+//   &__title{
+//     position: relative;
+//     margin-top: 2em;
+//     &:nth-of-type(1){
+//       margin-top: 0;
+//     }
+//     & > span, & > h3{
+//       display: inline-block;
+//     }
+//     & > span{
+//       position: absolute;
+//       //left: -$pl;
+//       left: -$size;
+//       width: $size;
+//       height: $size;
+//       line-height: $size;
+//       background: $color;
+//       color: $white;
+//       font-size: 1.5em;
+//       text-align: center;
+//       transform: translate(-35%,-25%);
+//       border-radius: 50%;
+//     }
+//     & > h3{
+//       text-transform: uppercase;
+//     }
+//
+//   }
+//   &__content{
+//     margin-top: 2em;
+//     h4{
+//       font-size: 1em;
+//       text-transform: uppercase;
+//     }
+//     h5{
+//       color: rgba($gray,.45);
+//       margin: .5em 0 1em;
+//     }
+//   }
+// }
+// .date{
+//   position: relative;
+//   margin-bottom: 1.5em;
+//   p{
+//     background: $color;
+//     display: table;
+//     text-transform: uppercase;
+//     $height: 20px;
+//     line-height: $height;
+//     height: $height;
+//     padding: 0 1em;
+//     color: $white;
+//     font-size: .9em;
+//     &:before, &::after{
+//       content: '';
+//       position: absolute;
+//     }
+//     &:before{
+//       $size-circle: 15px;
+//       width: $size-circle;
+//       height: $size-circle;
+//       border-radius: 50%;
+//       background: $white;
+//       left: -$size;
+//       top: 50%;
+//       transform: translateY(-50%);
+//     }
+//     &::after{
+//       left: -$height/2;
+//       top: 0;
+//       width: 0;
+//       height: 0;
+//       border: $height/2 solid $color;
+//       border-left-color: transparent;
+//     }
+//   }
+//   &.green{
+//     p{
+//       &::before{
+//         background: $color !important;
+//       }
+//     }
+//   }
+// }
+// .html{
+//   @include skill(80,$white);
+// }
+// .css{
+//   @include skill(100,$white);
+// }
+// .jquery{
+//   @include skill(60,$white);
+// }
+// .wordpress{
+//   @include skill(80,$white);
+// }
+// .illustrador{
+//   @include skill(80,$white);
+// }
+// .fireworks{
+//   @include skill(60,$white);
+// }
+// .photoshop{
+//   @include skill(70,$white);
+// }
 //.skill-title{
 //
 //}

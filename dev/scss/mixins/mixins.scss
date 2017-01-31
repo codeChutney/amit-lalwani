@@ -338,7 +338,7 @@
       content: '#{$percentage}';
       position: absolute;
       $sizep: 40px;
-      right: calc(#{-$sizep} - 0em);
+      right: calc(#{-$sizep} - .5em);
       width: $sizep;
       height: $sizep;
       line-height: $sizep;
