@@ -1,11 +1,10 @@
 .home{
-  background: img('bg.jpg') center center / cover no-repeat;
+  background: img('bg.jpg') center center / cover fixed no-repeat;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-
   &::after{
     content: '';
     position: absolute;

@@ -33,7 +33,7 @@
         </div>
       </div>
       <nav class="main-nav">
-        <ul class="main-menu">
+        <ul class="main-menu" id="menu">
           <li><a class="selected" href="#home"><span class="icon-home-1"></span>home</a></li>
           <li><a href="#resume"><span class="icon-id-card"></span>resume</a></li>
           <li><a href="#portfolio"><span class="icon-glasses"></span>portfolio</a></li>
@@ -47,8 +47,12 @@
       <footer class="main-footer" id="main-footer"></footer>
     </header>
     <main class="main" id="main">
-      <!--section.home#home-->
-      <!--  include blocks/home-->
+      <section class="home" id="home">
+        <div class="home__message"><span class="home__span">Hi, I am</span>
+          <p class="home__name">Amit Lalwani</p>
+          <p class="home__pro" id="message">I am a writer</p>
+        </div>
+      </section>
       <section class="resume" id="resume">
         <div class="title_page">
           <h2>resume</h2><span class="icon-id-card"></span>
@@ -286,16 +290,77 @@
           </div>
         </div>
       </section>
-      <!--section.portfolio#portfolio-->
-      <!--  include blocks/portfolio-->
+      <section class="portfolio" id="portfolio">
+        <div class="title_page"><span class="icon-id-card"></span>
+          <h2>portfolio</h2>
+        </div>
+        <div class="container">
+          <div class="portfolio__gallery">
+            <div class="portfolio__item"><a class="fancybox img-container" href="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" rel="gallery1"><img src="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="Gallery"/></a>
+              <footer class="item-footer">
+                <h3>BOOKCARD</h3>
+                <p>a vcard theme</p>
+              </footer>
+            </div>
+            <div class="portfolio__item"><a class="fancybox img-container" href="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" rel="gallery1"><img src="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="Gallery"/></a>
+              <footer class="item-footer">
+                <h3>BOOKCARD</h3>
+                <p>a vcard theme</p>
+              </footer>
+            </div>
+            <div class="portfolio__item"><a class="fancybox fancybox img-container" href="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" rel="gallery1"><img src="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="Gallery"/></a>
+              <footer class="item-footer">
+                <h3>BOOKCARD</h3>
+                <p>a vcard theme</p>
+              </footer>
+            </div>
+            <div class="portfolio__item"><a class="fancybox fancybox img-container" href="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" rel="gallery1"><img src="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="Gallery"/></a>
+              <footer class="item-footer">
+                <h3>BOOKCARD</h3>
+                <p>a vcard theme</p>
+              </footer>
+            </div>
+            <div class="portfolio__item"><a class="fancybox fancybox img-container" href="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" rel="gallery1"><img src="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="Gallery"/></a>
+              <footer class="item-footer">
+                <h3>BOOKCARD</h3>
+                <p>a vcard theme</p>
+              </footer>
+            </div>
+            <div class="portfolio__item"><a class="fancybox fancybox img-container" href="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" rel="gallery1"><img src="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="Gallery"/></a>
+              <footer class="item-footer">
+                <h3>BOOKCARD</h3>
+                <p>a vcard theme</p>
+              </footer>
+            </div>
+            <div class="portfolio__item"><a class="fancybox fancybox img-container" href="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" rel="gallery1"><img src="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="Gallery"/></a>
+              <footer class="item-footer">
+                <h3>BOOKCARD</h3>
+                <p>a vcard theme</p>
+              </footer>
+            </div>
+            <div class="portfolio__item"><a class="fancybox fancybox img-container" href="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" rel="gallery1"><img src="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="Gallery"/></a>
+              <footer class="item-footer">
+                <h3>BOOKCARD</h3>
+                <p>a vcard theme</p>
+              </footer>
+            </div>
+            <div class="portfolio__item"><a class="fancybox fancybox img-container" href="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" rel="gallery1"><img src="https://images.pexels.com/photos/51415/pexels-photo-51415.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="Gallery"/></a>
+              <footer class="item-footer">
+                <h3>BOOKCARD</h3>
+                <p>a vcard theme</p>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="js/scripts.min.js?ver=1.0.2"></script>
     <script src="js/scripts.js?ver=1.0.2"></script>
     <script>
       $(".fancybox").fancybox({
-        openEffect: 'elastic',
-        closeEffect: 'fade',
-        maxWidth: 800
+      openEffect: 'elastic',
+      closeEffect: 'fade',
+      maxWidth: 800
       });
     </script>
   </body>
