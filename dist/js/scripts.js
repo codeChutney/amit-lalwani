@@ -35,6 +35,12 @@ $(function () {
     }, 1000);
   });
 });
+(function (w, s, d) {
+  window.addEventListener("deviceorientation", handleOrientation, false);
+  function handleOrientation(event) {
+    console.log(screen.orientation);
+  }
+})(window, screen, document);
 'use strict';
 
 (function (d) {

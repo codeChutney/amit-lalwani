@@ -28,3 +28,11 @@ body{
     font-size: 2em;
   }
 }
+.white{
+  h2{
+    color: $white;
+  }
+  span{
+    color: $white;
+  }
+}

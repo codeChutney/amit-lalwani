@@ -22,12 +22,13 @@ $social-colors:(
   googleplus  : #dd4b39,
   youtube     : #bb0000,
   linkedin    : #007bb5,
-  instagram   : #e95950,
+  instagram   : #2089b5,
   whatsapp    : #4dc247,
   pinterest   : #cb2027,
   vine        : #00bf8f,
   snapchat    : #fffc00,
-  sigmapcs    : #0085CC
+  sigmapcs    : #0085CC,
+  github      : #0D2636
 );
 
 
@@ -38,3 +39,4 @@ $fonts-color: $dark-gray;
 $headers-color: darken($fonts-color,10);
 $header-bg: #1C262B;
 $bg-color: $second-color;
+$shadow: darken($green,20);

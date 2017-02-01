@@ -1,0 +1,120 @@
+.contact{
+  background: img('map2.png') center / cover  no-repeat fixed;
+  color: $white;
+}
+.section-title{
+  //border: border(greenyellow,1px);
+  display: table;
+  position: relative;
+  margin: 0 auto;
+  z-index: 1;
+  h3{
+    position: relative;
+    z-index: 1;
+    background: $green;
+    line-height: 2em;
+    padding: 0 1em;
+    color: inherit;
+    font-size: 1em;
+  }
+}
+$flag-size: 30px;
+.flag-left, .flag-right{
+  position: absolute;
+  width: $flag-size;
+  height: 100%;
+  background: darken($green,10);
+  border: border(transparent,5px);
+}
+.flag-left{
+  left: -$flag-size + 5px;
+  top: -5px;
+  border-right-color: $shadow;
+  border-radius: 3px 0 0 3px;
+}
+.flag-right{
+  right: -$flag-size + 5px;
+  top: 5px;
+  border-left-color: $shadow;
+  border-radius: 0 3px 3px 0;
+}
+.networks{
+  @extend %list-style;
+  width: 80%;
+  max-width: 600px;
+  margin: 2em auto;
+  display: flex;
+  justify-content: space-around;
+  li{
+    //flex: auto;
+  }
+  a{
+    $border-color: $green;
+    $size: 60px;
+    display: block;
+    line-height: $size;
+    width: $size+5px;
+    //background: lightgreen;
+    text-align: center;
+    font-size: 2em;
+    border: border($white,2px);
+    border-radius: 50%;
+    transition: $transition;
+    @include to(m){
+      transform: scale(.7);
+      //line-height: $size*.75;
+      //width: $size*.75+5px;
+      //font-size: 1.5em;
+    }
+    &.icon-facebook:hover{
+      border-color: color(facebook);
+      background: color(facebook);
+    }
+    &.icon-twitter:hover{
+      border-color: color(twitter);
+      background: color(twitter);
+    }
+    &.icon-instagram:hover{
+      border-color: color(instagram);
+      background: color(instagram);
+    }
+    &.icon-linkedin:hover{
+      border-color: color(linkedin);
+      background: color(linkedin);
+    }
+    &.icon-github:hover{
+      border-color: color(github);
+      background: color(github);
+    }
+  }
+}
+
+.reachme{
+  margin: 2em auto;
+  @include edContainer;
+  width: 90% !important;
+  max-width: 960px;
+  p{
+    margin: 0;
+  }
+  &__item{
+    @include edItem(50,25);
+    //flex: auto;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    //justify-content: flex-start;
+
+    [class^="icon"]{
+      margin: 0;
+      padding: 0;
+      font-size: 2.5em;
+      flex: 0 0 20%;
+    }
+    .text{
+      //width: 80%;
+      flex: 0 0 80%;
+      padding-left: .5em;
+    }
+  }
+}
