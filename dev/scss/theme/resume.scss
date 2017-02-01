@@ -48,13 +48,17 @@ body{
       position: relative;
       width: 80%;
       max-width: 250px;
-      margin: 0 auto 1.5em;
+      margin: 2em auto 1em;
       line-height: 1.8em;
       background: $green;
       color: $white;
       text-transform: uppercase;
       text-align: center;
       margin-bottom: 2em;
+      &:first-of-type{
+        margin: 0em auto 3em;
+      }
+
       @include to(l){
         margin-top: 2em;
       }
@@ -87,47 +91,51 @@ body{
       padding: 2em 1em 0em;
       background: rgba($white,.75);
       position: relative;
+      cursor: pointer;
+      //border-radius: .5em;
+      //overflow: hidden;
       // transform: scale(.95);
       h4{
         margin-bottom: .5em;
         text-align: center;
-        color: darken($green,20);
         position: absolute;
         top: 0;
-        transform: translateY(-50%) translateX(-50%);
+        transform: translateY(0) translateX(-50%);
         background: $green;
-        left: 0;
-        // display: table;
-        width: 65%;
+        width: 100%;
         line-height: 2em;
         left: 50%;
         color: $white;
-        @include to(m){
-          width: 95%;
-          font-size: .9em;
-        };
+        transition: $transition;
+        @include to(365px){
+          font-size: .8em;
+          line-height: 2.55;
+        }
+        span{
+          position: absolute;
+          right: .5em;
+          &::before{
+            top:0;
+          }
+        }
       }
       .text{
-        // background: tomato;
         margin-bottom: .3em;
         display: flex;
+        &:first-of-type{
+          margin-top: .5em;
+        }
         h6{
-          // background: yellow;
           flex: 0 0 100px;
           padding-top: 4px;
           line-height: 1;
           text-align: right;
-          // font-size: 1em;
           @include from(m){
             width: 80px;
           };
-          // @include from(l){
-          //   width: 20%;
-          //   margin-right: .5em;
-          // };
+
         }
         p{
-          // width: 75%;
           flex: auto;
           padding: 0;
           margin-left: .5em;
@@ -143,216 +151,7 @@ body{
 
   }
 }
-#content{
+.content{
   display: none;
 }
 
-
-//
-//
-// border: border(transparent,5px);
-//
-// border-right-color: darken($green,30);
-// border-radius: 3px 0 0 3px;
-//
-//
-// border-left-color: darken($green,30);
-// border-radius: 0 3px 3px 0;
-
-
-
-
-
-
-
-
-
-
-
-
-//
-// .resume{
-//   background: none;
-//   padding-bottom: 3em;
-//   position: relative;
-//   &__container{
-//     @include edContainer;
-//     margin-top: 3em;
-//   }
-//   &__history, &__skills{
-//     @include edItem(100,50);
-//   }
-//   &__history{
-//     padding-left: $pl;
-//     margin-top: 2em;
-//     border-left: border($white,3px);
-//     &:first-child{
-//       margin-top: 0;
-//     }
-//   }
-//   &__skills{
-//     //background: lightgreen;
-//     @include to(m){
-//       margin-top: 2em;
-//     }
-//     @include from(l){
-//       margin-top: -.5em;
-//     }
-//     &__title{
-//       $heigth: 30px;
-//       $top: -5px;
-//       position: relative;
-//       color: $white;
-//       background: $color;
-//       width: 75%;
-//       max-width: 300px;
-//       margin: 6em auto 3em;
-//       height: $heigth;
-//       line-height: $heigth;
-//       font-size: 1em;
-//       text-transform: uppercase;
-//       text-align: center;
-//       &:nth-of-type(1){
-//         margin: 0 auto 3em;
-//       }
-//       //@include from(l){
-//       //  transform: translateY(-50%);
-//       //}
-//       &::before, &::after{
-//         content: '';
-//         position: absolute;
-//         display: block;
-//         height: 100%;
-//         width: $heigth*.75;
-//         background: darken($color,10);
-//         z-index: -1 !important;
-//         border: border(transparent,5px);
-//         @include from(l){
-//           z-index: -1;
-//         }
-//       }
-
-//       &::before{
-//         left: calc((#{$heigth*.75} - 5px) * -1);
-//         top: $top;
-//         border-right-color: darken($green,30);
-//         border-radius: 3px 0 0 3px;
-//       }
-//       &::after{
-//         right: calc((#{$heigth*.75} - 5px) * -1);
-//         bottom: $top;
-//         border-left-color: darken($green,30);
-//         border-radius: 0 3px 3px 0;
-//       }
-//     }
-//   }
-//   &__title{
-//     position: relative;
-//     margin-top: 2em;
-//     &:nth-of-type(1){
-//       margin-top: 0;
-//     }
-//     & > span, & > h3{
-//       display: inline-block;
-//     }
-//     & > span{
-//       position: absolute;
-//       //left: -$pl;
-//       left: -$size;
-//       width: $size;
-//       height: $size;
-//       line-height: $size;
-//       background: $color;
-//       color: $white;
-//       font-size: 1.5em;
-//       text-align: center;
-//       transform: translate(-35%,-25%);
-//       border-radius: 50%;
-//     }
-//     & > h3{
-//       text-transform: uppercase;
-//     }
-//
-//   }
-//   &__content{
-//     margin-top: 2em;
-//     h4{
-//       font-size: 1em;
-//       text-transform: uppercase;
-//     }
-//     h5{
-//       color: rgba($gray,.45);
-//       margin: .5em 0 1em;
-//     }
-//   }
-// }
-// .date{
-//   position: relative;
-//   margin-bottom: 1.5em;
-//   p{
-//     background: $color;
-//     display: table;
-//     text-transform: uppercase;
-//     $height: 20px;
-//     line-height: $height;
-//     height: $height;
-//     padding: 0 1em;
-//     color: $white;
-//     font-size: .9em;
-//     &:before, &::after{
-//       content: '';
-//       position: absolute;
-//     }
-//     &:before{
-//       $size-circle: 15px;
-//       width: $size-circle;
-//       height: $size-circle;
-//       border-radius: 50%;
-//       background: $white;
-//       left: -$size;
-//       top: 50%;
-//       transform: translateY(-50%);
-//     }
-//     &::after{
-//       left: -$height/2;
-//       top: 0;
-//       width: 0;
-//       height: 0;
-//       border: $height/2 solid $color;
-//       border-left-color: transparent;
-//     }
-//   }
-//   &.green{
-//     p{
-//       &::before{
-//         background: $color !important;
-//       }
-//     }
-//   }
-// }
-// .html{
-//   @include skill(80,$white);
-// }
-// .css{
-//   @include skill(100,$white);
-// }
-// .jquery{
-//   @include skill(60,$white);
-// }
-// .wordpress{
-//   @include skill(80,$white);
-// }
-// .illustrador{
-//   @include skill(80,$white);
-// }
-// .fireworks{
-//   @include skill(60,$white);
-// }
-// .photoshop{
-//   @include skill(70,$white);
-// }
-//.skill-title{
-//
-//}
-//.skill{
-//}

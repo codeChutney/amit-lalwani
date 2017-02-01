@@ -1,5 +1,16 @@
 "use strict";
-"use strict";
+'use strict';
+
+(function () {
+  var resumeProjectContent = $('.resume__project-content');
+  resumeProjectContent.on('click', function (e) {
+    // console.log($(this).find('.content'));
+    var content = $(this).find('.content');
+    var icon = $(this).find('.icon');
+    content.slideToggle();
+    icon.toggleClass('icon-chevron-up');
+  });
+})();
 "use strict";
 'use strict';
 
