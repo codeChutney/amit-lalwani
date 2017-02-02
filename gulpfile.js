@@ -51,7 +51,8 @@ const
             // `${dir.dev}/assets/css/owl.transitionscss`,
             // `${dir.nm}/nivo-slider/nivo-slider.css`,
             // `${dir.dev}/assets/css/nivo/default.css`,
-            `${dir.dev}/assets/css/jquery.fancybox.css`
+            `${dir.dev}/assets/css/jquery.fancybox.css`,
+            `${dir.dev}/assets/css/spop.css`
         ],
         mCSS: 'styles.min.css',
         mJS: 'scripts.min.js',
@@ -64,7 +65,8 @@ const
             // `${dir.nm}/nivo-slider/jquery.nivo.slider.pack.js`
             // `${dir.dev}/assets/js/jquery.slides.js`,
             // `${dir.dev}/assets/js/owl.carousel.js`,
-            `${dir.dev}/assets/js/jquery.fancybox.js`
+            `${dir.dev}/assets/js/jquery.fancybox.js`,
+            `${dir.dev}/assets/js/spop.js`
             // `${dir.nm}/wowjs/dist/wow.min.js`
         ]
     },

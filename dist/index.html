@@ -398,16 +398,22 @@
           <h3>Drop Me A Line</h3>
           <div class="flag-right"></div>
         </div>
-        <form class="form" id="form" action="send.php" method="post">
+        <form class="form" id="form" action="http://sigmapcs.com.mx/send.php" method="post" novalidate="novalidate">
           <div class="input-group">
             <label for="name">name</label>
-            <input type="text" name="name" id="name"/>
+            <input type="text" name="name" id="name"/><span class="span-error" id="name-msg-error"></span>
           </div>
           <div class="input-group">
-            <label for="name">name</label>
-            <input type="text" name="name" id="name"/>
+            <label for="email">email</label>
+            <input type="email" name="email" id="email"/><span class="span-error" id="email-msg-error"></span>
           </div>
-          <div class="textarea-group"></div>
+          <div class="textarea-group">
+            <label for="message-ta">message</label>
+            <textarea id="message-ta" name="message"></textarea><span class="span-error" id="message-msg-error"></span>
+          </div>
+          <footer class="form-footer">
+            <button id="btn-send" type="submit">send</button>
+          </footer>
         </form>
       </section>
     </main>
