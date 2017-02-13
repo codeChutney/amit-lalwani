@@ -1,4 +1,4 @@
-# Framework #
+# Portfolio #
 Framework desarrollando por Sigmapcs
 
-Usando PUF, SCSS, ES6
+Using PUG, SCSS, ES6
