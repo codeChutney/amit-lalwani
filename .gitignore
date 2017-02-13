@@ -48,4 +48,5 @@ prepros.cfg
 node_modules/
 
 # Error files
-*dump*
+*dump
+*.log
