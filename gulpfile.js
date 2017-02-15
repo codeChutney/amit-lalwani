@@ -19,7 +19,9 @@ const babel = require('gulp-babel'),
     webp = require('gulp-webp'),
     svgmin = require('gulp-svgmin'),
     tinypng = require('gulp-tinypng-compress');
+
 const autoprefixer = require('gulp-autoprefixer');
+
 const cleanCSS = require('gulp-clean-css');
 const postcssPlugin = [
     cssnano({
@@ -160,6 +162,7 @@ gulp.task('default', () => {
     gulp.watch('./dev/es6/**/*.js',['es6']);
     gulp.watch('./dev/assets/js/*.js',['cJS']);
 });
+
 gulp.task('img', () =>
 gulp.src(`${dir.dev}/assets/img/**/*.+(png|jpeg|jpg|gif)`)
     .pipe(imagemin({
@@ -168,17 +171,20 @@ gulp.src(`${dir.dev}/assets/img/**/*.+(png|jpeg|jpg|gif)`)
     // .pipe(tinypng(opts.tinypng))
     .pipe(gulp.dest('dist/img'))
 );
+
 gulp.task('webp', () => {
     gulp.src(`${dir.dev}/assets/img/**/*.+(png|jpeg|jpg)`)
     .pipe( webp() )
     .pipe( gulp.dest('dist/img/webp') );
 });
+
 gulp.task('svg', () => {
     gulp
     .src( `${dir.dev}/assets/img/**/*.svg` )
     .pipe( svgmin(opts.svgmin) )
     .pipe( gulp.dest(`${dir.dist}/img/svg`) );
 });
+
 gulp.task('cCSS', ()=>{
     return gulp.src(files.css)
         .pipe(sourcemaps.init())
@@ -187,10 +193,12 @@ gulp.task('cCSS', ()=>{
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/css'));
 });
+
 gulp.task('fonts', ()=>{
     return gulp.src(files.fonts)
         .pipe(gulp.dest('./dist/fonts'));
 });
+
 gulp.task('cJS', ()=>{
     return gulp.src(files.JS)
         .pipe(concat(files.mJS))
