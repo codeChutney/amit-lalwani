@@ -42,5 +42,8 @@
   },
   "engines": {
     "yarn": "0.16.1"
+  },
+  "scripts": {
+    "postinstall": "gulp default"
   }
 }
