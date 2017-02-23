@@ -126,7 +126,8 @@ gulp.task('styles', ()=>{
     // .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('./dist/css'))
     // .pipe(gulp.dest('./dev/assets/css/'))
-    .pipe(isDev() ? browserSync.stream() : () => { console.log('pug done') });
+    //.pipe(browserSync.stream());
+    .pipe(gulpif(isDev(), browserSync.stream()));
 });
 
 gulp.task('pug', ()=> {
