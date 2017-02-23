@@ -134,7 +134,7 @@ gulp.task('pug', ()=> {
     .pipe(pug(opts.pug))
     // .pipe(htmlmin(opts.htmlmin))
     .pipe(gulp.dest('./dist'))
-    .on('end', isDev() ? browserSync.stream : console.log('css done'));
+    .on('end', isDev() ? browserSync.stream : () => { console.log('pug done') });
 });
 
 gulp.task('es6',() => {
@@ -149,7 +149,7 @@ gulp.task('es6',() => {
         // }))
         .pipe(gulp.dest('./dist/js/'))
         // .pipe(gulp.dest('./dev/assets/js/'))
-        .on('end', isDev() ? browserSync.stream : console.log('css done'));
+        .on('end', isDev() ? browserSync.stream : () => { console.log('es6 done') });
 });
 
 gulp.task('img', () =>
