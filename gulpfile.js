@@ -111,6 +111,7 @@ const
 
 
 gulp.task('styles', ()=>{
+    
     gulp.src('./dev/scss/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(opts.sass).on('error', sass.logError))
@@ -125,7 +126,7 @@ gulp.task('styles', ()=>{
     // .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('./dist/css'))
     // .pipe(gulp.dest('./dev/assets/css/'))
-    .pipe( browserSync.stream() );
+    .pipe(isDev() ? browserSync.stream() : () => { console.log('pug done') });
 });
 
 gulp.task('pug', ()=> {
