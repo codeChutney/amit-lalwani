@@ -5,7 +5,8 @@ const gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     plumber = require('gulp-plumber'),
     sitemap = require('gulp-sitemap'),
-    compress = require('gulp-yuicompressor');;
+    compress = require('gulp-yuicompressor'),
+    gulpif = requires('gulp-if');
 
 const postcss = require('gulp-postcss'),
     cssnano = require('cssnano'),
