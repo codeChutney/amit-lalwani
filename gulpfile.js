@@ -130,7 +130,7 @@ gulp.task('styles', ()=>{
     // .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('./dist/css'))
     // .pipe(gulp.dest('./dev/assets/css/'))
-    .pipe(isDev() ? browserSync.stream : console.log('css done'));
+    .pipe(isDev() ? browserSync.stream : browserSync.stream);
 });
 
 gulp.task('pug', ()=> {
