@@ -130,7 +130,7 @@ gulp.task('styles', ()=>{
     // .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('./dist/css'))
     // .pipe(gulp.dest('./dev/assets/css/'))
-    .pipe(isDev()?() =>{browserSync.stream();}:() =>{console.log('css done')});
+    .pipe(isDev() ? browserSync.stream : console.log('css done'));
 });
 
 gulp.task('pug', ()=> {
@@ -139,7 +139,7 @@ gulp.task('pug', ()=> {
     .pipe(pug(opts.pug))
     // .pipe(htmlmin(opts.htmlmin))
     .pipe(gulp.dest('./dist'))
-    .on('end', isDev()?() =>{browserSync.stream();}:() =>{console.log('css done')});
+    .on('end', isDev() ? browserSync.stream : console.log('css done'));
 });
 
 gulp.task('es6',() => {
@@ -154,7 +154,7 @@ gulp.task('es6',() => {
         // }))
         .pipe(gulp.dest('./dist/js/'))
         // .pipe(gulp.dest('./dev/assets/js/'))
-        .on('end', isDev()?() =>{browserSync.stream();}:() =>{console.log('css done')});
+        .on('end', isDev() ? browserSync.stream : console.log('css done'));
 });
 
 gulp.task('img', () =>
