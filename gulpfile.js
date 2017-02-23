@@ -1,8 +1,3 @@
-const isDevBuild = (process.env.NODE_ENV !== 'production');
-const isDev = function(){
-    return isDevBuild;
-};
-
 const gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     sass = require('gulp-sass'),
@@ -130,7 +125,7 @@ gulp.task('styles', ()=>{
     // .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('./dist/css'))
     // .pipe(gulp.dest('./dev/assets/css/'))
-    .pipe( browserSync.stream );
+    .pipe( browserSync.stream() );
 });
 
 gulp.task('pug', ()=> {
@@ -240,6 +235,11 @@ gulp.task('watch', () => {
     gulp.watch('./dev/es6/**/*.js', ['es6']);
     gulp.watch('./dev/assets/js/*.js', ['cJS']);
 });
+
+const isDevBuild = (process.env.NODE_ENV !== 'production');
+const isDev = function(){
+    return isDevBuild;
+};
 
 gulp.task('deploy', ['styles', 'pug', 'es6', 'cJS']);
 
