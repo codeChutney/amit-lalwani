@@ -1,7 +1,4 @@
 const isDevBuild = (process.env.NODE_ENV !== 'production');
-console.log(process.env.NODE_ENV);
-console.log("Is this a dev build");
-console.log(isDevBuild);
 
 const gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
@@ -123,11 +120,10 @@ gulp.task('styles', ()=>{
     .pipe(autoprefixer(opts.autoprefixer))
     .pipe(sourcemaps.write())
     // .pipe(cachebust())
-
-        // .on("warning", function(message){
-        //     // Log missing assets
-        //     gutil.log(gutil.colors.red(message));
-        // })
+    // .on("warning", function(message){
+    //     // Log missing assets
+    //     gutil.log(gutil.colors.red(message));
+    // })
     // .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('./dist/css'))
     // .pipe(gulp.dest('./dev/assets/css/'))
@@ -242,8 +238,6 @@ gulp.task('watch', () => {
     gulp.watch('./dev/assets/js/*.js',['cJS']);
 });
 
-gulp.task('default', [isDevBuild?'watch':'deploy']);
+gulp.task('deploy', ['styles', 'pug', 'es6', 'cJS']);
 
-gulp.task('deploy', () => {
-    console.log('Running Gulp in production mode');
-});
+gulp.task('default', [isDevBuild?'watch':'deploy']);
