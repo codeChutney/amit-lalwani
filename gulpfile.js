@@ -1,4 +1,7 @@
 const isDevBuild = (process.env.NODE_ENV !== 'production');
+const isDev = function(){
+    return isDevBuild;
+};
 
 const gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
@@ -127,7 +130,7 @@ gulp.task('styles', ()=>{
     // .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('./dist/css'))
     // .pipe(gulp.dest('./dev/assets/css/'))
-    .pipe(browserSync.stream());
+    .pipe(isDev()?() =>{browserSync.stream();}:() =>{console.log('css done')});
 });
 
 gulp.task('pug', ()=> {
@@ -136,7 +139,7 @@ gulp.task('pug', ()=> {
     .pipe(pug(opts.pug))
     // .pipe(htmlmin(opts.htmlmin))
     .pipe(gulp.dest('./dist'))
-    .on('end', browserSync.reload);
+    .on('end', isDev()?() =>{browserSync.stream();}:() =>{console.log('css done')});
 });
 
 gulp.task('es6',() => {
@@ -151,7 +154,7 @@ gulp.task('es6',() => {
         // }))
         .pipe(gulp.dest('./dist/js/'))
         // .pipe(gulp.dest('./dev/assets/js/'))
-        .on('end', browserSync.reload);
+        .on('end', isDev()?() =>{browserSync.stream();}:() =>{console.log('css done')});
 });
 
 gulp.task('img', () =>
@@ -234,8 +237,8 @@ gulp.task('watch', () => {
     });
     gulp.watch('./dev/scss/**/*.scss', ['styles']);
     gulp.watch('./dev/pug/**/*.pug', ['pug']);
-    gulp.watch('./dev/es6/**/*.js',['es6']);
-    gulp.watch('./dev/assets/js/*.js',['cJS']);
+    gulp.watch('./dev/es6/**/*.js', ['es6']);
+    gulp.watch('./dev/assets/js/*.js', ['cJS']);
 });
 
 gulp.task('deploy', ['styles', 'pug', 'es6', 'cJS']);
