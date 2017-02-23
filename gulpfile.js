@@ -1,3 +1,8 @@
+const isDevBuild = (process.env.NODE_ENV !== 'production');
+console.log(process.env.NODE_ENV);
+console.log("Is this a dev build");
+console.log(isDevBuild);
+
 const gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     sass = require('gulp-sass'),
@@ -153,16 +158,6 @@ gulp.task('es6',() => {
         .on('end', browserSync.reload);
 });
 
-gulp.task('default', () => {
-    browserSync.init({
-    server:  "./dist"
-    });
-    gulp.watch('./dev/scss/**/*.scss', ['styles']);
-    gulp.watch('./dev/pug/**/*.pug', ['pug']);
-    gulp.watch('./dev/es6/**/*.js',['es6']);
-    gulp.watch('./dev/assets/js/*.js',['cJS']);
-});
-
 gulp.task('img', () =>
 gulp.src(`${dir.dev}/assets/img/**/*.+(png|jpeg|jpg|gif)`)
     .pipe(imagemin({
@@ -235,4 +230,20 @@ gulp.task('robots', function () {
             sitemap: '/sitemap.xml'
         }))
         .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('watch', () => {
+    browserSync.init({
+    server:  "./dist"
+    });
+    gulp.watch('./dev/scss/**/*.scss', ['styles']);
+    gulp.watch('./dev/pug/**/*.pug', ['pug']);
+    gulp.watch('./dev/es6/**/*.js',['es6']);
+    gulp.watch('./dev/assets/js/*.js',['cJS']);
+});
+
+gulp.task('default', [isDevBuild?'watch':'deploy']);
+
+gulp.task('deploy', () => {
+    console.log('Running Gulp in production mode');
 });
