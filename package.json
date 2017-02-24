@@ -36,6 +36,7 @@
   "dependencies": {
     "animate.css": "^3.5.2",
     "baguettebox.js": "^1.8.1",
+    "http2": "^3.3.6",
     "jquery": "3.1.1",
     "normalize.css": "^5.0.0",
     "shufflejs": "^4.0.2",
