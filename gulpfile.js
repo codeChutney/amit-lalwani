@@ -160,7 +160,7 @@ gulp.task('es6',() => {
         // }))
         .pipe(gulp.dest('./dist/js/'))
         // .pipe(gulp.dest('./dev/assets/js/'))
-        .on('end',isDev() ? browserSync.reload : () => console.log('pug task complete'));
+        .on('end',isDev() ? browserSync.reload : () => console.log('es6 task complete'));
 });
 
 gulp.task('img', () =>

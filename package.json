@@ -45,6 +45,7 @@
     "yarn": "0.16.1"
   },
   "scripts": {
-    "postinstall": "gulp default"
+    "postinstall": "gulp default",
+    "start": "node index.js"
   }
 }
