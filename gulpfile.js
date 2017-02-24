@@ -1,3 +1,8 @@
+const isDevBuild = (process.env.NODE_ENV !== 'production');
+const isDev = function(){
+    return isDevBuild;
+};
+
 const gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     sass = require('gulp-sass'),
@@ -25,10 +30,15 @@ const autoprefixer = require('gulp-autoprefixer');
 
 const cleanCSS = require('gulp-clean-css');
 const postcssPlugin = [
+    //minification, optimization plugin for css files
     cssnano({
+        //Removes unnecessary prefixes based on the browsers option. 
+        //Note that by default, it will not add new prefixes to the CSS file.
         autoprefixer:{
             add: true
         },
+        //If core is set to TRUE, trims whitespace inside and around rules, selectors & declarations, 
+        //plus removes the final semicolon inside every selector.
         core: false
     })
 ];
@@ -110,9 +120,7 @@ const
         }
     };
 
-
 gulp.task('styles', ()=>{
-    
     gulp.src('./dev/scss/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(opts.sass).on('error', sass.logError))
@@ -137,7 +145,7 @@ gulp.task('pug', ()=> {
     .pipe(pug(opts.pug))
     // .pipe(htmlmin(opts.htmlmin))
     .pipe(gulp.dest('./dist'))
-    .on('end', isDev() ? browserSync.stream : () => { console.log('pug done') });
+    .on('end', isDev() ? browserSync.reload : () => console.log('pug task complete'));
 });
 
 gulp.task('es6',() => {
@@ -152,7 +160,7 @@ gulp.task('es6',() => {
         // }))
         .pipe(gulp.dest('./dist/js/'))
         // .pipe(gulp.dest('./dev/assets/js/'))
-        .on('end', isDev() ? browserSync.stream : () => { console.log('es6 done') });
+        .on('end',isDev() ? browserSync.reload : () => console.log('pug task complete'));
 });
 
 gulp.task('img', () =>
@@ -239,11 +247,6 @@ gulp.task('watch', () => {
     gulp.watch('./dev/assets/js/*.js', ['cJS']);
 });
 
-const isDevBuild = (process.env.NODE_ENV !== 'production');
-const isDev = function(){
-    return isDevBuild;
-};
-
 gulp.task('deploy', ['styles', 'pug', 'es6', 'cJS']);
 
-gulp.task('default', [isDevBuild?'watch':'deploy']);
+gulp.task('default', [isDev() ? 'watch' : 'deploy']);
