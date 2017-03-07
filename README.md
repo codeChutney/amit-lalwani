@@ -1,4 +1,4 @@
 # Portfolio #
-Framework desarrollando por Sigmapcs
+Amit's portfolio
 
-Using PUG, SCSS, ES6
+Made using PUG, SCSS, ES6
