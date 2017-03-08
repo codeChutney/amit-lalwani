@@ -4,6 +4,12 @@
   "description": "Sitio web de SigmaPCS",
   "main": "gulpfile.js",
   "author": "Florentino Navarro <tino@sigmapcs.com.mx>",
+  "contributors": [
+    {
+      "name": "Amit Lalwani",
+      "email": "lalwani.amith@gmail.com"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",
@@ -14,9 +20,11 @@
     "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.2",
+    "gulp-environments": "^0.1.1",
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.0.3",
+    "gulp-nodemon": "^2.2.1",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.2.0",
     "gulp-pug": "^3.1.0",
@@ -34,9 +42,8 @@
     "uglify": "^0.1.5"
   },
   "dependencies": {
-    "animate.css": "^3.5.2",
     "baguettebox.js": "^1.8.1",
-    "express": "^4.14.1",
+    "express": "^4.15.2",
     "jquery": "3.1.1",
     "normalize.css": "^5.0.0",
     "shufflejs": "^4.0.2",

@@ -1,18 +1,21 @@
-const isDevBuild = (process.env.NODE_ENV !== 'production');
-const isDev = function(){
-    return isDevBuild;
-};
+//node plugins
+const nodemon = require('gulp-nodemon');    
 
+//environments
+const dev = require('gulp-environments').development;
+
+//gulp utilities
 const gulp = require('gulp'),
-    browserSync = require('browser-sync').create(),
+    gulpif = require('gulp-if');
+
+const browserSync = require('browser-sync').create(),
     sass = require('gulp-sass'),
     pug = require('gulp-pug'),
     htmlmin = require('gulp-htmlmin'),
     plumber = require('gulp-plumber'),
     sitemap = require('gulp-sitemap'),
-    compress = require('gulp-yuicompressor'),
-    gulpif = require('gulp-if');
-
+    compress = require('gulp-yuicompressor');
+    
 const postcss = require('gulp-postcss'),
     cssnano = require('cssnano'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -136,7 +139,7 @@ gulp.task('styles', ()=>{
     .pipe(gulp.dest('./dist/css'))
     // .pipe(gulp.dest('./dev/assets/css/'))
     //.pipe(browserSync.stream());
-    .pipe(gulpif(isDev(), browserSync.stream()));
+    .pipe(gulpif( dev(), browserSync.stream()));
 });
 
 gulp.task('pug', ()=> {
@@ -145,7 +148,7 @@ gulp.task('pug', ()=> {
     .pipe(pug(opts.pug))
     // .pipe(htmlmin(opts.htmlmin))
     .pipe(gulp.dest('./dist'))
-    .on('end', isDev() ? browserSync.reload : () => console.log('pug task complete'));
+    .on('end', dev() ? browserSync.reload : () => console.log('prod pug task complete'));
 });
 
 gulp.task('es6',() => {
@@ -160,7 +163,7 @@ gulp.task('es6',() => {
         // }))
         .pipe(gulp.dest('./dist/js/'))
         // .pipe(gulp.dest('./dev/assets/js/'))
-        .on('end',isDev() ? browserSync.reload : () => console.log('es6 task complete'));
+        .on('end', dev() ? browserSync.reload : () => console.log('prod es6 task complete'));
 });
 
 gulp.task('img', () =>
@@ -237,16 +240,28 @@ gulp.task('robots', function () {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('watch', () => {
-    browserSync.init({
-    server:  "./dist"
-    });
+gulp.task('sync-browser', ['nodemon'] ,() => {
+    browserSync.init(null, {
+        proxy:  "http://localhost:4000"
+    }); 
+});
+
+gulp.task('devDeploy', ['sync-browser'] ,() => {
     gulp.watch('./dev/scss/**/*.scss', ['styles']);
     gulp.watch('./dev/pug/**/*.pug', ['pug']);
     gulp.watch('./dev/es6/**/*.js', ['es6']);
     gulp.watch('./dev/assets/js/*.js', ['cJS']);
 });
 
-gulp.task('deploy', ['styles', 'pug', 'es6', 'cJS']);
+gulp.task('nodemon', () => {
+    var callbackCalled = false;
+    return nodemon({script: './index.js'}).on('start', function () {
+        if (!callbackCalled) {
+            callbackCalled = true;
+            cb();
+        }
+    });
+});
 
-gulp.task('default', [isDev() ? 'watch' : 'deploy']);
+gulp.task('deploy', ['styles', 'pug', 'es6', 'cJS']);
+gulp.task('default', [ dev() ? 'devDeploy' : 'deploy' ]);
