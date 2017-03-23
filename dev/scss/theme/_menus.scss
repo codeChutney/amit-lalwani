@@ -3,6 +3,19 @@
   max-height: 600px;
 }
 .main-menu{
+  @include toHeight($menuHeightCutOff){
+    nav{
+      overflow-x: hidden;
+    }
+    li{
+      min-height: 35px; 
+    }
+    a{
+      span{
+        display: none;
+      }
+    }
+  }
   height: 100%;
   @extend %list-style;
   display: flex;
@@ -31,6 +44,5 @@
     &:hover,&.selected{
       color: rgba($white,.75);
     }
-    //background: tomato;
   }
 }

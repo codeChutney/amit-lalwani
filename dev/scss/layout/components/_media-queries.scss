@@ -74,6 +74,25 @@
   }
 }
 
+// toHeight
+@mixin toHeight($to){
+  // is this a core breakpoint
+  @if isCoreBreakpoint($to){
+    @if $to == s {
+      @content;
+    } @else {
+      @media screen and (max-height : getBp($to) - 1px) { @content }
+    }
+  }
+  @else if isValidBreakpoint($to){
+    @media screen and (max-height: toPx($to) - 1px){ @content }
+  }
+  @else {
+    @error 'El mixin to() solo puede recibir un breakpoint del Core (#{map-keys($breakpoints)}) o un número en px, em o rem'
+  }
+}
+
+
 @mixin fromTo($from,$to){
   // Si ambos son breakpoints del core
   @if isCoreBreakpoint($from) and isCoreBreakpoint($to){

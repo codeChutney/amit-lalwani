@@ -20,6 +20,7 @@ $lh: 3rem;
   color: $white;
   h1{
     color: inherit;
+    font-weight: normal;  
   }
   @include to($vp){
     width: 100%;
@@ -36,10 +37,8 @@ $lh: 3rem;
       border-right: border(rgba($white,.2),1px);
       text-align: center;
       white-space: nowrap;
-
     }
     h1{
-
       font-size: 1.5em;
       line-height: $lh;
       text-align: left;
@@ -89,5 +88,8 @@ $lh: 3rem;
   font-size: .8em;
   span{
     margin-left: 3px;
+  }
+  @include toHeight($menuHeightCutOff){
+    display: none;
   }
 }

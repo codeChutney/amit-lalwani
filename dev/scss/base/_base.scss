@@ -27,10 +27,6 @@ p {
   }
 }
 
-blockquote {
-
-}
-
 // Estilos básicos de los encabezados
 h1, h2, h3, h4, h5, h6 {
   font-family    : $header--font-family;
@@ -69,6 +65,7 @@ h5 {
 h6 {
   font-size : $h6--font-size;
 }
+
 section{
   width: calc(100vw - #{$header-width});
   height: 100vh;
@@ -83,4 +80,16 @@ section{
     width: 100vw;
     left: $header-width;
   }
+}
+
+.panel{
+  margin-top: -150%;
+  -webkit-transition: all 2.8s ease-in;
+	-moz-transition: all 2.8s ease-in;
+	-o-transition: all 2.8s ease-in;
+	transition: all 2.8s ease-in;
+}
+
+.panel:target{
+  margin-top: 0%;
 }
