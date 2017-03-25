@@ -242,11 +242,11 @@ gulp.task('robots', function () {
 
 gulp.task('sync-browser', ['nodemon'] ,() => {
     browserSync.init(null, {
-        proxy:  "http://localhost:4000"
+        proxy:  "http://localhost:4003"
     }); 
 });
 
-gulp.task('devDeploy', ['sync-browser'] ,() => {
+gulp.task('devDeploy', ['reactification', 'sync-browser'] ,() => {
     gulp.watch('./dev/scss/**/*.scss', ['styles']);
     gulp.watch('./dev/pug/**/*.pug', ['pug']);
     gulp.watch('./dev/es6/**/*.js', ['es6']);
@@ -263,5 +263,9 @@ gulp.task('nodemon', () => {
     });
 });
 
-gulp.task('deploy', ['styles', 'pug', 'es6', 'cJS']);
+gulp.task('reactification', function () {
+    return require('./tasks/reactification.js')(gulp);
+});
+
+gulp.task('deploy', ['styles', 'pug', 'es6', 'cJS', 'reactification']);
 gulp.task('default', [ dev() ? 'devDeploy' : 'deploy' ]);
